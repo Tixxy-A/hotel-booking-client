@@ -131,6 +131,7 @@ export default function Widget({ place }) {
 
 
     //console.log(dis)
+    console.log('anuj');
 
     return (
         <div className="bg-white shadow p-4 rounded-2xl">
