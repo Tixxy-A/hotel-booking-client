@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../context/Ursecontext";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { sub } from "date-fns";
 import axios from "axios";
 import PlacePage from "../pagecomp/PlacesPage";
 import Booking from "../pagecomp/Bookings";
@@ -22,12 +21,12 @@ export default function Account() {
             console.log(e);
         }
 
-    }, [user,subpage])
+    }, [user,subpage,setPlaces])
     if (subpage === undefined) {
         subpage = 'profile';
     }
     async function logout() {
-        const logoot = await axios.post('http://localhost:3001/logout');
+         await axios.post('http://localhost:3001/logout');
         setRedirect('/')
         setUser(null);
     }

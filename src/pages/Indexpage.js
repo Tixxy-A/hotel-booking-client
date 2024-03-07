@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-export default function () {
+export default function Index() {
     const [loading, setLoading] = useState(false);
     const [allplaces, setAllPlaces] = useState([]);
     useEffect(() => {

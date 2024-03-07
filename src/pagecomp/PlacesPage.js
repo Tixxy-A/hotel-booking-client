@@ -5,14 +5,14 @@ import { useForm } from 'react-hook-form'
 import axios from "axios";
 import { UserContext } from "../context/Ursecontext";
 import Perks from "./Perks";
-import { add } from "date-fns";
+
 
 export default function PlacePage() {
     const { action } = useParams();
     //const [places, setPlaces] = useState([]);
     const { places } = useContext(UserContext);
 
-    const { watch, register, handleSubmit, setValue, formState: { errors, isValid } } = useForm({ mode: "all" });
+    const { watch, register, handleSubmit, setValue } = useForm({ mode: "all" });
     const [addedphotos, setAddedPhotos] = useState([]);
     const [perks, setPerks] = useState([]);
     const [redirects, setRedirects] = useState(false);
@@ -33,7 +33,7 @@ export default function PlacePage() {
                 //console.log(watch());
             })
         }
-    }, [action])
+    }, [action,setValue])
 
     async function formsubmit(val) {
         val.addedphotos = addedphotos;
@@ -41,13 +41,13 @@ export default function PlacePage() {
         //console.log(action);
         console.log(val)
         if (action === 'new') {
-            const reply = await axios.post('http://localhost:3001/places', val);
+            await axios.post('http://localhost:3001/places', val);
             setRedirects(true);
             //console.log(reply);
         }
         else {
            // console.log("hii")
-            const reply = await axios.put('http://localhost:3001/places/' + action, val);
+         await axios.put('http://localhost:3001/places/' + action, val);
             setRedirects(true);
 
         }
@@ -56,7 +56,6 @@ export default function PlacePage() {
     //console.log(redirects);
     if (redirects) {
         return <Navigate to={'/account/'} />
-        setRedirects(false);
     }
 
     async function addphotobylink() {
@@ -166,11 +165,7 @@ export default function PlacePage() {
                                 message: "Please enter name",
                             },
                         })} />
-                        {(
-                            <p className=" mb-4 text-red-600 text-sm ">
-                                {errors.message}
-                            </p>
-                        )}
+                        
                         <h2 className="text-2xl mt-4" >Address</h2>
                         <input type="text" placeholder="Address"  {...register("address", {
                             required: {

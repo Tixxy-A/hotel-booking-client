@@ -2,10 +2,10 @@ import axios from "axios";
 import { format } from "date-fns";
 import { differenceInCalendarDays } from "date-fns/esm";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"
+import {  Link } from "react-router-dom"
 
 export default function Booking() {
-    const { action } = useParams();
+    //const { action } = useParams();
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
         axios.get('http://localhost:3001/booking').then(res => {

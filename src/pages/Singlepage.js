@@ -13,7 +13,7 @@ export default function Singlepage() {
                 setPlace(resp.data);
             })
         }
-    }, []);
+    }, [id]);
     if (!place) {
         return (
             <div role="status" className='h-max my-auto mx-auto '>
@@ -56,7 +56,7 @@ export default function Singlepage() {
         <div className="flex justify-center">
             <div className="mt-8 w-3/4 bg-gray-100  rounded-2xl shadow-2xl px-8 py-6  ">
                 <h1 className="text-3xl">{place.title}</h1>
-                <a className=" flex gap-1 font-semibold my-2 text-gray-600 underline hover:text-black" href={"https://maps.google.com/?q=" + place.address} target="_blank">
+                <a className=" flex gap-1 font-semibold my-2 text-gray-600 underline hover:text-black" href={"https://maps.google.com/?q=" + place.address} >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
