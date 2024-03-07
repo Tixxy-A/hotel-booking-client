@@ -12,7 +12,7 @@ export default function Account() {
     useEffect(() => {
         try {
             if (user) {
-                axios.get('http://localhost:3001/user-places').then(res2 => {
+                axios.get('/user-places').then(res2 => {
                     setPlaces(res2.data);
                     //console.log(res2.data);
                 });
@@ -26,7 +26,7 @@ export default function Account() {
         subpage = 'profile';
     }
     async function logout() {
-         await axios.post('http://localhost:3001/logout');
+         await axios.post('/logout');
         setRedirect('/')
         setUser(null);
     }

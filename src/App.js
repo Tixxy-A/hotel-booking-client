@@ -9,6 +9,8 @@ import Account from "./pages/Account";
 import Singlepage from "./pages/Singlepage";
 import axios from "axios";
 
+axios.defaults.baseURL = 'https://airbnc-ff6p.onrender.com';
+
 axios.defaults.withCredentials=true;
 
 function App() {

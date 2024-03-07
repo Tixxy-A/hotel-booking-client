@@ -5,7 +5,7 @@ export default function Index() {
     const [loading, setLoading] = useState(false);
     const [allplaces, setAllPlaces] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3001/places').then(resp => {
+        axios.get('/places').then(resp => {
             setAllPlaces(resp.data);
             setLoading(true);
            // console.log(allplaces);
@@ -31,7 +31,7 @@ export default function Index() {
                     <Link to={'/place/' + place._id} key={place._id} className=' hover:-translate-y-1 hover:scale-105 duration-300'>
                         <div className='rounded-2xl flex h-200'>
                             {place.photos[0] &&
-                                <img className='object-cover w-full aspect-square rounded-2xl' src={'http://localhost:3001/uploads/' + place.photos[0]} alt='fuck' />
+                                <img className='object-cover w-full aspect-square rounded-2xl' src={'https://airbnc-ff6p.onrender.com/uploads/' + place.photos[0]} alt='fuck' />
                             }
                         </div>
                         <h2 className='text-sm font-bold mt-2'>{place.address}</h2>
