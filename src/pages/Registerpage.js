@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import axios from 'axios';
 export default function Loginpage() {
-    const { register, handleSubmit, formState: { errors ,message} } = useForm();
+    const { register, handleSubmit } = useForm();
     async function registerHandler(val){
        // e.preventDefault();
         //console.log(val)

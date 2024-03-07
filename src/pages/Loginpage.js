@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../context/Ursecontext';
 
 export default function Loginpage() {
-    const { register, handleSubmit, formState: { errors, message } } = useForm();
+    const { register, handleSubmit } = useForm();
     const [redirect, setRedirect] = useState(false);
     const {setUser}=useContext(UserContext)
     async function loginhandler(val) {

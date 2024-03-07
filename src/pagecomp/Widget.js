@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { differenceInBusinessDays, differenceInCalendarDays } from "date-fns";
+import { differenceInCalendarDays } from "date-fns";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../context/Ursecontext";
 export default function Widget({ place }) {
-    const {user}=useContext(UserContext);
+    const { user } = useContext(UserContext);
     const [checkIn, setCheckIn] = useState(new Date());
     const [checkOut, setCheckOut] = useState(new Date());
     const [dis, setDis] = useState(true);
@@ -12,7 +12,7 @@ export default function Widget({ place }) {
     const [numberofnights, setNumberOfNights] = useState(0);
     const [name, setName] = useState(user.name);
     const [mobile, setMobile] = useState();
-    const [redirect, setRedirect] =useState(false);
+    const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState([{
         name: 'checkin',
         status: false,
@@ -97,7 +97,7 @@ export default function Widget({ place }) {
         }
         if (checkIn && checkOut) {
             setNumberOfNights(differenceInCalendarDays(new Date(checkOut), new Date(checkIn)));
-           // console.log(numberofnights)
+            // console.log(numberofnights)
         }
         //console.log(error)
         //console.log(new Date(checkIn), new Date());
@@ -110,28 +110,28 @@ export default function Widget({ place }) {
 
     }, [checkIn, checkOut, numberOfGuest])
 
-   async function showhandler() {
-        
-        const resp=await axios.post('http://localhost:3001/booking',{
+    async function showhandler() {
+
+        await axios.post('http://localhost:3001/booking', {
             checkIn,
             checkOut,
             numberOfGuest,
             name,
             mobile,
-            price:numberofnights * place.price,
-            place:place._id,
+            price: numberofnights * place.price,
+            place: place._id,
         })
         setRedirect(`/account/bookings`);
 
     }
-    if(redirect){
-        return <Navigate to={redirect}/>
+    if (redirect) {
+        return <Navigate to={redirect} />
     }
 
 
 
-    
-    
+
+
 
     return (
         <div className="bg-white shadow p-4 rounded-2xl">
@@ -184,12 +184,15 @@ export default function Widget({ place }) {
             </div>
             {error.map(item => {
                 if (item.status === false) {
-                    return (
-                        <div key={item.name} className="bg-red-100 border-l-4 border-red-500 text-red-700 px-4 py-3" role="alert">
-                            <p className="text-sm font-semibold">{item.msg}</p>
-                        </div>
-                    )
+                return (
+
+                    <div key={item.name} className="bg-red-100 border-l-4 border-red-500 text-red-700 px-4 py-3" role="alert">
+                        <p className="text-sm font-semibold">{item.msg}</p>
+                    </div>
+
+                    );
                 }
+                return null;
             })}
             <button className="primary text-white mt-4 disabled:opacity-50" onClick={showhandler}
                 disabled={dis}>
