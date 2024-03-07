@@ -130,7 +130,7 @@ export default function Widget({ place }) {
 
 
 
-    //console.log(dis)
+    
     console.log('anuj');
 
     return (
