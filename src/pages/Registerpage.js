@@ -7,7 +7,7 @@ export default function Loginpage() {
        // e.preventDefault();
         //console.log(val)
         try{
-          await axios.post('http://localhost:3001/register',val).then(res=>{
+          await axios.post('/register',val).then(res=>{
           console.log(res.data);
           alert('Registered successfully');
         })

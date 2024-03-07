@@ -9,7 +9,7 @@ export default function Singlepage() {
     const [allphoto, setAllPhoto] = useState(false);
     useEffect(() => {
         if (id) {
-            axios.get(`http://localhost:3001/places/${id}`).then(resp => {
+            axios.get(`/places/${id}`).then(resp => {
                 setPlace(resp.data);
             })
         }
@@ -42,7 +42,7 @@ export default function Singlepage() {
                     {place.photos.length > 0 && place.photos.map(photo => {
                         return (
                             <div className="" key={photo}>
-                                <img className="object-cover w-full aspect-video" src={"http://localhost:3001/uploads/" + photo} alt="fuck" />
+                                <img className="object-cover w-full aspect-video" src={"https://airbnc-ff6p.onrender.com/uploads/" + photo} alt="fuck" />
                             </div>
                         );
 
@@ -67,16 +67,16 @@ export default function Singlepage() {
                     <div className=" grid gap-2 grid-cols-[2fr_1fr] overflow-hidden rounded-2xl">
                         <div  >
                             {place.photos[0] &&
-                                <img className=" w-full  aspect-square object-cover" src={"http://localhost:3001/uploads/" + place.photos[0]} alt="fuck" />
+                                <img className=" w-full  aspect-square object-cover" src={"https://airbnc-ff6p.onrender.com/uploads/" + place.photos[0]} alt="fuck" />
                             }
                         </div>
                         <div className="">
                             {place.photos[1] &&
-                                <img className="w-full round aspect-square" src={"http://localhost:3001/uploads/" + place.photos[1]} alt="fuck" />
+                                <img className="w-full round aspect-square" src={"https://airbnc-ff6p.onrender.com/uploads/" + place.photos[1]} alt="fuck" />
                             }
                             <div className=" overflow-hidden">
                                 {place.photos[2] &&
-                                    <img className="w-full rounde aspect-square relative top-2" src={"http://localhost:3001/uploads/" + place.photos[2]} alt="fuck" />
+                                    <img className="w-full rounde aspect-square relative top-2" src={"https://airbnc-ff6p.onrender.com/uploads/" + place.photos[2]} alt="fuck" />
                                 }
                             </div>
                         </div>

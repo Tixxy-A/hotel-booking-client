@@ -11,7 +11,7 @@ export default function Loginpage() {
     async function loginhandler(val) {
         try {
             //console.log(val);
-            const m = await axios.post('http://localhost:3001/login', val);
+            const m = await axios.post('/login', val);
             //console.log(m.data);
             setUser(m.data);
             alert(m.data);

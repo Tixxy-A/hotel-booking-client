@@ -8,7 +8,7 @@ export default function Booking() {
     //const { action } = useParams();
     const [bookings, setBookings] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:3001/booking').then(res => {
+        axios.get('/booking').then(res => {
             setBookings(res.data);
             //console.log(res.data);
         })
@@ -28,7 +28,7 @@ export default function Booking() {
                     <div className="flex justify-center">
                         <Link to={'/account/bookings/' + booking._id} className="flex w-3/5 gap-5 bg-gray-200 p-4 mt-5 rounded-3xl shadow-inner hover:bg-gray-200 cursor-pointer" key={booking._id}>
                             <div className=" shrink-0  transitin w-1/6 ease-in-out delay-10 hover:-translate-y-1 hover:scale-110 duration-300">
-                                <img className="object-cover  rounded-xl aspect-square" src={'http://localhost:3001/uploads/' + booking.place.photos[0]} alt="fuck" />
+                                <img className="object-cover  rounded-xl aspect-square" src={'https://airbnc-ff6p.onrender.com/uploads/' + booking.place.photos[0]} alt="fuck" />
                             </div>
                             <div className="grow shrink">
                                 <h2 className="font-semibold text-lg ">{booking.place.title}</h2>

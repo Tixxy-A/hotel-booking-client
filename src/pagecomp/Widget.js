@@ -112,7 +112,7 @@ export default function Widget({ place }) {
 
     async function showhandler() {
 
-        await axios.post('http://localhost:3001/booking', {
+        await axios.post('/booking', {
             checkIn,
             checkOut,
             numberOfGuest,
