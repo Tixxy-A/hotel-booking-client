@@ -13,7 +13,7 @@ export default function Header(){
                     </svg> <span className="font-bold text-xl text-primary">Airbnb</span>
                 </Link>
                 <div className="flex border border-grey-300 rounded-full px-4 py-2 justify-between gap-3 shadow-md shadow-gray-300">
-                    <div className='font-semibold'>Anywhere</div>
+                    <div className='font-semibold'>Anywherewhy</div>
                     <div className="border-l border-gray-300"></div>
                     <div className='font-semibold'>Any week</div>
                     <div className="border-l border-gray-300"></div>
