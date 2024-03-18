@@ -15,6 +15,8 @@ export default function Account() {
                 axios.get('/user-places').then(res2 => {
                     setPlaces(res2.data);
                     //console.log(res2.data);
+                }).catch(e=>{
+                    console.log(e);
                 });
             }
         } catch (e) {

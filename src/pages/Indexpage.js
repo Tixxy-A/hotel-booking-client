@@ -5,11 +5,18 @@ export default function Index() {
     const [loading, setLoading] = useState(false);
     const [allplaces, setAllPlaces] = useState([]);
     useEffect(() => {
-        axios.get('/places').then(resp => {
-            setAllPlaces(resp.data);
-            setLoading(true);
-           // console.log(allplaces);
-        })
+        try{
+            axios.get('/places').then(resp => {
+                setAllPlaces(resp.data);
+                setLoading(true);
+               // console.log(allplaces);
+            }).catch(err=>{
+                console.log(err);
+            })
+        }catch(e){
+            console.log(e);
+            console.log('error');
+        }
     }, []);
     if (!loading) {
         return (

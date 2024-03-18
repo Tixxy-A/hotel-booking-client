@@ -11,9 +11,11 @@ export function UserContextProvider({children}) {
     useEffect(()=>{
         if(!user){
           try{
-             axios.get('/profile').then(response=>{
+             axios.get('/profile',).then(response=>{
                setUser(response.data);
                setReady(true);
+             }).catch(e=>{
+              console.log(e);
              })
             //console.log(response);
             
